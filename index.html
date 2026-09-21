@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Operator Portofolio // Agung Cahyo</title>
+
+    <!--Menyambungkan ke file CSS eskternal-->
+    <link rel="stylesheet" href="style.css">
+
+    <!--Font Google Sci-Fi (Chakra Petch & JetBrains Mono)-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@600;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <!-- 0. Video Background & Overlay -->
+    <video autoplay loop muted playsinline class="bg-video">
+        <source src="endministrator-arknights-endfield.3840x2160.mp4" type="video/mp4">
+    </video>
+    <div class="bg-overlay"></div>
+
+    <!--1. Bar Status Atas-->
+    <header class="status-bar">
+        <div class="status-indicator">
+            <span class="dot"></span>
+            <span class="status-text">[SYS_STATUS: ONLINE]</span>
+        </div>
+
+        <!--Fitur Light mode dan Dark mode-->
+        <div style="display: flex; align-items: center; gap: 15px;">
+            <button id="theme-toggle" class="theme-btn">[ MODE TERANG]</button>
+            <div class="operator-id">OPERATOR_ID: 8090-RPL</div>
+        </div>
+    </header>
+
+    <!--2. Hero / Perkenalan-->
+    <section class="hero-section">
+        <div class="hero-content">
+            <!-- Bagian Kiri: Tesk-->
+             <div class="hero-text">
+                <div class="tag-badge">END FIELD // PERSONAL DATA</div>
+                <h1>AGUNG <span class="highlight">Cahyo</span></h1>
+                <p class="bio-text">
+                Siswa RPL SMKN 1 Kepanjen. Sedang mempelajari web development, Semantic HTML5, CSS Flexbox, dan JavaScript DOM.
+                </p>
+            <div class="hazard-bar"></div>
+        </div>
+
+        <!--Bagian Kanan: Foto & Badge Lokasi-->
+        <div class="hero-image-container">
+            <!--Kotak latar animasi di belakang foto-->
+            <div class="hero-image-bg"></div>
+            <!--Ganti 'profile.jpg' dengan nama file fotomu-->
+            <img src="D:\VSCode\Web_Portofolio\rossi_cat.jpeg" alt="Foto Rossina jadi Kucing lucu" class="hero-image">
+
+            <!--Kotak melayang ala desain Mas Bagus-->
+            <div class="floating-badge">
+                <span class="badge-title">BASED IN</span><br>
+                <strong>Ngajum, Indonesia</strong>
+            </div>
+        </div>
+        </div>
+    </section>
+
+    <!--3. Skills / Peralatan-->
+    <section class="skills-section">
+        <h2 class="section-title">// EQUIPMENT & TECH MODULES</h2>
+
+        <div class="skills-grid">
+            <div class="skill-card">
+                <h3>HTML5</h3>
+                <p>Structure & Semantic</p>
+            </div>
+            <div class="skill-card">
+                <h3>CSS3</h3>
+                <p>Flexbox & Responsive</p>
+            </div>
+            <div class="skill-card">
+                <h3>JavaScript</h3>
+                <p>DOM Manipulation</p>
+            </div>
+            <div class="skill-card">
+                <h3>Git & GitHub</h3>
+                <p>Version Control</p>
+            </div>
+        </div>
+    </section>
+
+    <!--4. Projects / Tugas Sekolah-->
+    <section class="projects-section">
+        <h2 class="section-title">// MISSION  RECORDS (PROJECTS)</h2>
+
+        <div class="projects-grid">
+            <!--Card Proyek 1-->
+            <article class="project-card">
+                <div class="card-header">
+                    <span class="mission-id">MISSION_01</span>
+                    <span class="badge-completed">[COMPLETED]</span>
+                </div>
+                <h3>Profile Card Interactive</h3>
+                <p>Halaman kartu profil interaktif dengan fitur modal popup & dynamic greeting.</p>
+                <div class="tech-stack">STACK: HTML, CSS, JS</div>
+            </article>
+
+            <!--Card Proyek 2-->
+            <article class="project-card">
+                <div class="card-header">
+                    <span class="mission-id">MISSION_02</span>
+                    <span class="badge-in-progress">[IN_PROGRESS]</span>
+                </div>
+                <h3>Python Lab Report</h3>
+                <p>Dokumentasi visual langkah praktikum dasar pemrograman Python.</p>
+                <div class="tech-stack">STACK: Python, Canva</div>
+            </article>
+        </div>
+    </section>
+
+    <!--5. Footer / Kontak-->
+    <footer class="footer-section">
+        <p>[COMMUNICATION CHANNEL READY]</p>
+        <p>Dikembangkan oleh Agung Cahyo &copy; 2026 // SMKN 1 Kepanjen</p>
+    </footer>
+
+    <!--Menyambungkan ke file JavaScript external-->
+    <script src="script.js"></script>
+</body>
+</html>

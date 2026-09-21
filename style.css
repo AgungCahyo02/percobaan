@@ -1,0 +1,500 @@
+/* ====================================================
+   1. GLOBAL RESET & BASE STYLES
+   ==================================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #0b0e14; /* Warna latar gelap khas sci-fi */
+    color: #e2e8f0;
+    font-family: 'JetBrains Mono', monospace; /* Font sistem / coding */
+    padding: 30px;
+    max-width: 900px;
+    margin: 0 auto;
+    line-height: 1.6;
+}
+
+/* Mengubah font untuk semua judul menjadi Chakra Petch */
+h1, h2, h3 {
+    font-family: 'Chakra Petch', sans-serif;
+    text-transform: uppercase;
+}
+
+/* ====================================================
+   2. STATUS BAR (HEADER)
+   ==================================================== */
+.status-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #1e293b;
+    padding-bottom: 15px;
+    margin-bottom: 40px;
+    font-size: 0.8rem;
+    color: #94a3b8;
+}
+
+.status-indicator {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* Animasi titik kelap-kelip */
+.dot {
+    width: 10px;
+    height: 10px;
+    background-color: #ffc700; /* Warna kuning Endfield */
+    border-radius: 50%;
+    box-shadow: 0 0 10px #ffc700;
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% { opacity: 1; }
+    50% { opacity: 0.3; }
+    100% { opacity: 1; }
+}
+
+.status-text {
+    color: #ffc700;
+    font-weight: bold;
+}
+
+.operator-id {
+    letter-spacing: 1px;
+}
+
+/* ====================================================
+   3. HERO SECTION
+   ==================================================== */
+.hero-section {
+    margin-bottom: 60px;
+}
+
+.tag-badge {
+    display: inline-block;
+    background-color: #ffc700;
+    color: #0b0e14;
+    font-weight: bold;
+    font-size: 0.8rem;
+    padding: 4px 10px;
+    margin-bottom: 15px;
+    letter-spacing: 1px;
+}
+
+.hero-section h1 {
+    font-size: 3.5rem;
+    letter-spacing: 2px;
+    color: #ffffff;
+    margin-bottom: 10px;
+}
+
+.highlight {
+    color: #ffc700;
+}
+
+.bio-text {
+    color: #94a3b8;
+    max-width: 650px;
+    font-size: 1rem;
+    margin-bottom: 20px;
+}
+
+/* Garis polisi / hazard peringatan */
+.hazard-bar {
+    height: 8px;
+    width: 250px;
+    background: repeating-linear-gradient(
+        -45deg,
+        #ffc700,
+        #ffc700 10px,
+        #0b0e14 10px,
+        #0b0e14 20px
+    );
+}
+
+/* ====================================================
+   4. SECTIONS LAYOUT & TITLES
+   ==================================================== */
+.section-title {
+    color: #ffc700;
+    font-size: 1.3rem;
+    border-left: 4px solid #ffc700;
+    padding-left: 12px;
+    margin-bottom: 25px;
+    letter-spacing: 1px;
+}
+
+.skills-section, .projects-section {
+    margin-bottom: 60px;
+}
+
+/* ====================================================
+   5. SKILLS GRID & CARDS
+   ==================================================== */
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 15px;
+}
+
+.skill-card {
+    background-color: #121721;
+    border: 1px solid #1e293b;
+    padding: 20px;
+    text-align: center;
+    /* Membuat sudut potong sci-fi (chamfered corners) */
+    clip-path: polygon(0 0, calc(100% - 12px) 0, 100% 12px, 100% 100%, 12px 100%, 0 calc(100% - 12px));
+    transition: all 0.3s ease;
+}
+
+.skill-card:hover {
+    border-color: #ffc700;
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(255, 199, 0, 0.1);
+}
+
+.skill-card h3 {
+    color: #ffc700;
+    font-size: 1.2rem;
+    margin-bottom: 5px;
+}
+
+.skill-card p {
+    font-size: 0.8rem;
+    color: #64748b;
+}
+
+/* ====================================================
+   6. PROJECTS GRID & CARDS
+   ==================================================== */
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+.project-card {
+    background-color: #121721;
+    border: 1px solid #1e293b;
+    padding: 25px;
+    clip-path: polygon(0 0, calc(100% - 15px) 0, 100% 15px, 100% 100%, 15px 100%, 0 calc(100% - 15px));
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+.project-card:hover {
+    border-color: #ffc700;
+    box-shadow: 0 0 20px rgba(255, 199, 0, 0.15);
+}
+
+.card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.mission-id {
+    color: #64748b;
+    font-size: 0.8rem;
+    font-weight: bold;
+}
+
+/* Styling untuk badge status misi */
+.badge-completed, .badge-in-progress {
+    font-size: 0.7rem;
+    padding: 4px 8px;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+.badge-completed {
+    color: #ffc700;
+    background-color: rgba(255, 199, 0, 0.1);
+    border: 1px solid rgba(255, 199, 0, 0.3);
+}
+
+.badge-in-progress {
+    color: #00e5ff; /* Warna cyan */
+    background-color: rgba(0, 229, 255, 0.1);
+    border: 1px solid rgba(0, 229, 255, 0.3);
+}
+
+.project-card h3 {
+    color: #ffffff;
+    font-size: 1.4rem;
+    margin-bottom: 10px;
+}
+
+.project-card p {
+    font-size: 0.9rem;
+    color: #94a3b8;
+    margin-bottom: 20px;
+    flex-grow: 1; /* Memastikan tech-stack selalu ada di paling bawah */
+}
+
+.tech-stack {
+    font-size: 0.8rem;
+    color: #ffc700;
+    border-top: 1px solid #1e293b;
+    padding-top: 15px;
+    font-weight: bold;
+}
+
+/* ====================================================
+   7. FOOTER
+   ==================================================== */
+.footer-section {
+    border-top: 1px solid #1e293b;
+    padding-top: 30px;
+    text-align: center;
+    font-size: 0.8rem;
+    color: #64748b;
+}
+
+.footer-section p:first-child {
+    color: #94a3b8;
+    margin-bottom: 10px;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+/* ====================================================
+   8. LIGHT THEME OVERRIDES (TEMA TERANG)
+   ==================================================== */
+/* Desain Tombol Tema */
+.theme-btn {
+    background: transparent;
+    color: #ffc700;
+    border: 1px solid #ffc700;
+    padding: 4px 8px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.theme-btn:hover {
+    background: #ffc700;
+    color: #0b0e14;
+}
+
+/* --- Perubahan Warna Saat Tema Terang Aktif --- */
+body.light-theme {
+    background-color: #f8fafc; /* Putih keabu-abuan */
+    color: #1e293b;
+}
+
+/* Mengubah warna border dan teks pendukung */
+body.light-theme .status-bar,
+body.light-theme .footer-section {
+    border-color: #cbd5e1;
+}
+
+body.light-theme .bio-text,
+body.light-theme .status-bar,
+body.light-theme .operator-id,
+body.light-theme .footer-section,
+body.light-theme .mission-id {
+    color: #475569;
+}
+
+/* Mengubah judul menjadi gelap */
+body.light-theme .hero-section h1,
+body.light-theme .project-card h3 {
+    color: #0f172a;
+}
+
+/* Mengubah latar belakang kartu */
+body.light-theme .skill-card,
+body.light-theme .project-card {
+    background-color: #ffffff;
+    border-color: #cbd5e1;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+}
+
+/* Menyesuaikan garis hazard */
+body.light-theme .hazard-bar {
+    background: repeating-linear-gradient(
+        -45deg,
+        #ffc700,
+        #ffc700 10px,
+        #e2e8f0 10px,
+        #e2e8f0 20px
+    );
+}
+
+
+/* ====================================================
+   9. PERBAIKAN EFEK HOVER DI MODE TERANG
+   ==================================================== */
+/* Mengembalikan efek border kuning menyala saat kursor mendekat (hover) di mode terang */
+
+body.light-theme .skill-card:hover,
+body.light-theme .project-card:hover {
+    border-color: #ffc700;
+    /* Memberikan bayangan kuning yang lebih tebal agar terlihat di atas warna putih */
+    box-shadow: 0 5px 20px rgba(255, 199, 0, 0.4);
+    /* Sedikit mengubah warna background agar efek hover lebih terasa */
+    background-color: #fdfbf7; 
+}
+
+
+/* ====================================================
+   10. PERUBAHAN TATA LETAK FOTO & HERO SECTION (DENGAN ANIMASI)
+   ==================================================== */
+.hero-content {
+    display: flex;
+    flex-direction: column; /* Di HP: Teks di atas, Foto di bawah */
+    gap: 40px;
+    align-items: center;
+}
+
+/* Mengatur ukuran untuk layar agak lebar (PC/Laptop) */
+@media (min-width: 768px) {
+    .hero-content {
+        flex-direction: row; /* Berdampingan: Teks Kiri, Foto Kanan */
+        justify-content: space-between;
+        align-items: center;
+    }
+    .hero-text {
+        flex: 1; /* Mengambil ruang tersisa */
+    }
+    .hero-image-container {
+        flex: 1;
+        display: flex;
+        justify-content: flex-end; /* Dorong foto ke kanan */
+        position: relative;
+        /* Tambahan margin agar animasi kotak latar tidak keluar layar */
+        margin-right: 20px; 
+        margin-bottom: 20px;
+    }
+}
+
+/* Kotak Dekoratif Animasi di Belakang Foto */
+.hero-image-bg {
+    position: absolute;
+    top: 15px; /* Posisi awal sedikit ke bawah */
+    right: -15px; /* Posisi awal sedikit ke kanan, di belakang foto */
+    width: 100%;
+    max-width: 320px;
+    height: 100%;
+    border: 2px solid rgba(255, 199, 0, 0.3); /* Border transparan saat normal */
+    clip-path: polygon(0 0, calc(100% - 25px) 0, 100% 25px, 100% 100%, 25px 100%, 0 calc(100% - 25px));
+    z-index: 0; /* Pastikan selalu di belakang foto */
+    transition: all 0.4s ease; /* Transisi halus animasi */
+}
+
+/* Desain Bingkai Foto Sci-Fi Utama */
+.hero-image {
+    width: 100%;
+    max-width: 320px; 
+    height: auto;
+    object-fit: cover;
+    border: 2px solid #ffc700;
+    clip-path: polygon(0 0, calc(100% - 25px) 0, 100% 25px, 100% 100%, 25px 100%, 0 calc(100% - 25px));
+    box-shadow: 0 0 25px rgba(255, 199, 0, 0.15);
+    transition: all 0.4s ease;
+    z-index: 1; /* Pastikan selalu di depan kotak latar */
+    position: relative;
+}
+
+/* --- ANIMASI SAAT KURSOR MENDEKAT (HOVER) PADA FOTO --- */
+.hero-image-container:hover .hero-image {
+    transform: translate(-5px, -5px); /* Foto naik dan bergeser kiri */
+    box-shadow: 10px 10px 30px rgba(255, 199, 0, 0.2);
+    border-color: #ffffff;
+}
+
+.hero-image-container:hover .hero-image-bg {
+    transform: translate(10px, 10px); /* Kotak latar turun dan bergeser kanan */
+    border-color: #ffc700; /* Warna border menyala kuning */
+    background-color: rgba(255, 199, 0, 0.05); /* Timbul efek cahaya dalam kotak */
+}
+
+/* Kotak Informasi Melayang (Floating Badge) */
+.floating-badge {
+    position: absolute;
+    bottom: -15px; 
+    right: 20px;
+    background-color: #121721;
+    border: 1px solid #ffc700;
+    padding: 10px 15px;
+    font-size: 0.75rem;
+    font-family: 'JetBrains Mono', monospace;
+    color: #e2e8f0;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.6);
+    clip-path: polygon(0 0, calc(100% - 10px) 0, 100% 10px, 100% 100%, 10px 100%, 0 calc(100% - 10px));
+    z-index: 2; /* Paling depan */
+}
+
+.badge-title {
+    color: #64748b;
+    font-size: 0.65rem;
+    letter-spacing: 1px;
+}
+
+/* --- Penyesuaian Foto & Animasi untuk Mode Terang (Light Theme) --- */
+body.light-theme .hero-image,
+body.light-theme .hero-image-bg {
+    border-color: #cbd5e1;
+}
+
+body.light-theme .hero-image {
+    box-shadow: 12px 12px 0px #cbd5e1; 
+}
+
+body.light-theme .hero-image-container:hover .hero-image {
+    border-color: #ffc700; /* Border foto jadi kuning saat di-hover di mode terang */
+    box-shadow: 15px 15px 0px #94a3b8;
+}
+
+body.light-theme .hero-image-container:hover .hero-image-bg {
+    background-color: rgba(0, 0, 0, 0.02);
+    border-color: #94a3b8;
+}
+
+body.light-theme .floating-badge {
+    background-color: #ffffff;
+    color: #1e293b;
+    border-color: #cbd5e1;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+}
+
+
+
+/* ====================================================
+   11. VIDEO BACKGROUND & OVERLAY
+   ==================================================== */
+.bg-video {
+    position: fixed; /* Menempel di layar saat di-scroll */
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    object-fit: cover; /* Memastikan video menutupi seluruh ruang tanpa merusak rasio */
+    z-index: -2; /* Lapisan paling belakang */
+}
+
+/* Kaca gelap di atas video agar teks tetap kontras */
+.bg-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(11, 14, 20, 0.85); /* Warna dasar gelap dengan transparansi 85% */
+    z-index: -1; /* Di atas video, tapi di bawah konten web */
+}
+
+/* Modifikasi agar saat mode terang, overlay menjadi putih transparan */
+body.light-theme .bg-overlay {
+    background-color: rgba(248, 250, 252, 0.85);
+}

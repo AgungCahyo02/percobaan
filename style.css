@@ -498,3 +498,59 @@ body.light-theme .floating-badge {
 body.light-theme .bg-overlay {
     background-color: rgba(248, 250, 252, 0.85);
 }
+
+
+/* ====================================================
+   12. RESPONSIVE OPTIMIZATION (KHUSUS LAYAR HP)
+   ==================================================== */
+/* Kode di dalam blok ini HANYA akan aktif jika lebar layar maksimal 768px (seukuran HP/Tablet) */
+@media (max-width: 768px) {
+    
+    /* 1. Kurangi jarak padding luar agar layar HP tidak terlalu sempit */
+    body {
+        padding: 15px;
+    }
+
+    /* 2. Sesuaikan area Status Bar (Header) agar elemennya turun ke bawah dan tidak bertumpuk */
+    .status-bar {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+    }
+
+    /* Merentangkan tombol tema dan ID Operator ke kanan-kiri */
+    .status-bar > div:nth-child(2) {
+        width: 100%;
+        justify-content: space-between;
+    }
+
+    /* 3. Kecilkan ukuran font teks utama agar muat di HP */
+    .hero-section h1 {
+        font-size: 2.2rem;
+        margin-bottom: 5px;
+    }
+
+    .bio-text {
+        font-size: 0.85rem;
+    }
+
+    /* 4. Paksa kartu Projects menjadi 1 kolom penuh ke bawah di HP */
+    .projects-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    /* 5. Paksa kartu Skills menjadi 2 kolom berdampingan di HP */
+    .skills-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+    }
+
+    /* 6. Penyesuaian margin kotak animasi belakang foto agar tidak tumpah ke luar layar HP */
+    .hero-image-container {
+        margin-right: 15px;
+    }
+    .hero-image-bg {
+        right: -10px;
+        top: 10px;
+    }
+}

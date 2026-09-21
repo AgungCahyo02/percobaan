@@ -500,6 +500,7 @@ body.light-theme .bg-overlay {
 }
 
 
+
 /* ====================================================
    12. RESPONSIVE OPTIMIZATION (KHUSUS LAYAR HP)
    ==================================================== */
@@ -511,20 +512,19 @@ body.light-theme .bg-overlay {
         padding: 15px;
     }
 
-    /* 2. Sesuaikan area Status Bar (Header) agar elemennya turun ke bawah dan tidak bertumpuk */
+    /* 2. Sesuaikan area Status Bar (Header) */
     .status-bar {
         flex-direction: column;
         align-items: flex-start;
         gap: 15px;
     }
 
-    /* Merentangkan tombol tema dan ID Operator ke kanan-kiri */
     .status-bar > div:nth-child(2) {
         width: 100%;
         justify-content: space-between;
     }
 
-    /* 3. Kecilkan ukuran font teks utama agar muat di HP */
+    /* 3. Kecilkan ukuran font teks utama */
     .hero-section h1 {
         font-size: 2.2rem;
         margin-bottom: 5px;
@@ -534,23 +534,53 @@ body.light-theme .bg-overlay {
         font-size: 0.85rem;
     }
 
-    /* 4. Paksa kartu Projects menjadi 1 kolom penuh ke bawah di HP */
+    /* 4. Paksa kartu Projects menjadi 1 kolom penuh */
     .projects-grid {
         grid-template-columns: 1fr;
     }
     
-    /* 5. Paksa kartu Skills menjadi 2 kolom berdampingan di HP */
+    /* 5. Paksa kartu Skills menjadi 2 kolom berdampingan */
     .skills-grid {
         grid-template-columns: repeat(2, 1fr);
         gap: 10px;
     }
 
-    /* 6. Penyesuaian margin kotak animasi belakang foto agar tidak tumpah ke luar layar HP */
-    .hero-image-container {
-        margin-right: 15px;
+    /* ========================================
+       6. PERBAIKAN BUG FOTO DI HP
+       ======================================== */
+    /* Mengurangi gap teks dan foto agar tidak terlalu jauh */
+    .hero-content {
+        gap: 25px; 
     }
+
+    /* Memastikan wadah foto berada di tengah dan mengunci ukurannya */
+    .hero-image-container {
+        width: 100%;
+        max-width: 280px; /* Sedikit dikecilkan untuk layar HP */
+        margin: 0 auto; /* Posisi di tengah */
+        display: block; /* Matikan flex untuk elemen ini di HP */
+        position: relative; /* Kunci elemen anak (absolute) di dalam wadah ini */
+    }
+
+    /* Menyesuaikan foto agar pas dengan wadahnya */
+    .hero-image {
+        width: 100%;
+        height: auto;
+        display: block;
+    }
+
+    /* Menyesuaikan posisi kotak latar (border animasi) agar menempel rapi */
     .hero-image-bg {
-        right: -10px;
+        width: 100%;
+        height: 100%;
         top: 10px;
+        right: -10px;
+    }
+
+    /* Menyesuaikan posisi kotak "BASED IN" agar tidak tumpah/terpotong layar */
+    .floating-badge {
+        right: -5px;
+        bottom: -10px;
+        transform: scale(0.9); /* Sedikit dikecilkan agar proporsional di HP */
     }
 }

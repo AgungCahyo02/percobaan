@@ -524,7 +524,7 @@ body.light-theme .bg-overlay {
         gap: 15px;
     }
 
-    .status-bar > div:nth-child(2) {
+    .status-bar > div:nth-child {
         width: 100%;
         justify-content: space-between;
     }
@@ -587,5 +587,416 @@ body.light-theme .bg-overlay {
         right: -5px;
         bottom: -10px;
         transform: scale(0.9); /* Sedikit dikecilkan agar proporsional di HP */
+    }
+}
+
+
+/* ====================================================
+   13. TATA LETAK BARU (MENGADOPSI REFERENSI)
+   ==================================================== */
+/* Garis sapaan di atas judul */
+.greeting-line {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    color: #94a3b8;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.95rem;
+    margin-bottom: 20px;
+}
+
+.greeting-line .line {
+    width: 40px;
+    height: 2px;
+    background-color: #ffc700;
+}
+
+/* Judul super besar seperti di referensi */
+.giant-heading {
+    font-size: 4.5rem !important; 
+    line-height: 1.05;
+    margin-bottom: 25px !important;
+    color: #ffffff;
+}
+
+body.light-theme .giant-heading {
+    color: #0f172a;
+}
+
+/* Penataan dua tombol */
+.hero-buttons {
+    display: flex;
+    gap: 15px;
+    margin-top: 30px;
+    margin-bottom: 40px;
+}
+
+/* Desain tombol dengan sudut terpotong ala sci-fi */
+.btn-primary, .btn-secondary {
+    padding: 12px 28px;
+    font-family: 'JetBrains Mono', monospace;
+    font-weight: bold;
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+    clip-path: polygon(0 0, calc(100% - 10px) 0, 100% 10px, 100% 100%, 10px 100%, 0 calc(100% - 10px));
+    text-align: center;
+}
+
+.btn-primary {
+    background-color: #ffc700;
+    color: #0b0e14;
+    border: 2px solid #ffc700;
+}
+
+.btn-primary:hover {
+    background-color: rgba(255, 199, 0, 0.1);
+    color: #ffc700;
+}
+
+.btn-secondary {
+    background-color: transparent;
+    color: #e2e8f0;
+    border: 2px solid #334155;
+}
+
+.btn-secondary:hover {
+    border-color: #ffc700;
+    color: #ffc700;
+    background-color: rgba(255, 199, 0, 0.05);
+}
+
+body.light-theme .btn-secondary {
+    color: #1e293b;
+    border-color: #cbd5e1;
+}
+
+/* Bagian angka statistik di bawah (03 Bulan, 02 Project) */
+.hero-stats {
+    display: flex;
+    gap: 40px;
+    border-top: 1px solid #1e293b;
+    padding-top: 25px;
+}
+
+body.light-theme .hero-stats {
+    border-color: #cbd5e1;
+}
+
+.stat-item {
+    display: flex;
+    flex-direction: column;
+}
+
+.stat-number {
+    font-family: 'Chakra Petch', sans-serif;
+    font-size: 3.5rem;
+    font-weight: bold;
+    color: transparent; /* Membuat efek teks bolong (outline) */
+    -webkit-text-stroke: 2px rgba(255, 255, 255, 0.8);
+    line-height: 1;
+}
+
+body.light-theme .stat-number {
+    -webkit-text-stroke: 2px rgba(15, 23, 42, 0.8);
+}
+
+.stat-label {
+    color: #64748b;
+    font-size: 0.75rem;
+    letter-spacing: 2px;
+    margin-top: 8px;
+    font-family: 'JetBrains Mono', monospace;
+}
+
+/* --- Penyesuaian agar tidak berantakan di HP --- */
+@media (max-width: 768px) {
+    .giant-heading {
+        font-size: 2.8rem !important;
+    }
+    .hero-buttons {
+        flex-direction: column;
+    }
+    .hero-stats {
+        gap: 20px;
+        justify-content: space-between;
+    }
+    .stat-number {
+        font-size: 2.5rem;
+    }
+}
+
+
+
+/* ====================================================
+   14. TOP NAVIGATION MENU (MENU ATAS)
+   ==================================================== */
+/* Membuat efek gulir/scroll yang mulus saat menu diklik */
+html {
+    scroll-behavior: smooth;
+}
+
+.top-nav {
+    display: flex;
+    gap: 30px;
+}
+
+.nav-link {
+    color: #94a3b8;
+    text-decoration: none;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.85rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    position: relative;
+    transition: color 0.3s ease;
+    letter-spacing: 1px;
+}
+
+.nav-link:hover, .nav-link.active {
+    color: #ffc700; /* Warna teks kuning saat aktif/disentuh */
+}
+
+/* Efek Garis Bawah (Underline) Sci-Fi saat Hover */
+.nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: -6px;
+    left: 0;
+    width: 0%;
+    height: 2px;
+    background-color: #ffc700;
+    transition: width 0.3s ease; /* Animasi garis memanjang */
+}
+
+.nav-link:hover::after, .nav-link.active::after {
+    width: 100%;
+}
+
+/* --- Penyesuaian Mode Terang (Light Theme) untuk Menu --- */
+body.light-theme .nav-link {
+    color: #64748b;
+}
+
+body.light-theme .nav-link:hover, 
+body.light-theme .nav-link.active {
+    color: #0f172a;
+}
+
+body.light-theme .nav-link::after {
+    background-color: #0f172a; /* Garis bawah gelap di mode terang */
+}
+
+/* --- Penyesuaian agar Rapi di Layar HP (Mobile) --- */
+@media (max-width: 768px) {
+    .top-nav {
+        width: 100%;
+        justify-content: flex-start;
+        gap: 20px;
+        padding-bottom: 15px;
+        border-bottom: 1px dashed #334155; /* Garis putus-putus pembatas di HP */
+        order: 2; /* Trik agar menu dipaksa berada di tengah baris pada layar HP */
+    }
+    
+    .status-indicator {
+        order: 1; /* Status bar dipaksa paling atas di HP */
+    }
+    
+    .status-bar > div:last-child {
+        order: 3; /* Tombol Tema dipaksa paling bawah di HP */
+        padding-top: 5px;
+    }
+
+    body.light-theme .top-nav {
+        border-bottom-color: #cbd5e1;
+    }
+}
+
+
+
+
+/* ====================================================
+   15. PROJECT SECTION REDESIGN (ALA REFERENSI)
+   ==================================================== */
+.project-header-layout {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    margin-bottom: 30px;
+    border-bottom: 1px solid #1e293b;
+    padding-bottom: 40px;
+}
+
+/* Tampilan untuk layar PC / Laptop (Berjejer ke Samping) */
+@media (min-width: 768px) {
+    .project-header-layout {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .project-header-text {
+        flex: 1.5; /* Memberi ruang lebih luas untuk teks */
+    }
+    .project-header-stats {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end; /* Meratakan elemen ke sisi kanan */
+        text-align: right;
+    }
+}
+
+/* Penyesuaian ukuran Font Heading khusus di area Project */
+.project-header-text .giant-heading {
+    font-size: 3.2rem !important; 
+    margin-bottom: 15px !important;
+}
+
+/* Kontainer Angka Raksasa (02 TOTAL PROJECTS) */
+.big-stat-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-bottom: 25px;
+}
+
+@media (min-width: 768px) {
+    .big-stat-container {
+        align-items: flex-end; /* Rata kanan di PC */
+    }
+}
+
+.big-stat-container .stat-number {
+    font-size: 6rem; /* Lebih besar dari yang ada di Hero Section */
+}
+
+/* Grid kecil untuk statistik WEB, MOBILE, PYTHON */
+.small-stats-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px 30px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.8rem;
+    color: #64748b;
+}
+
+.small-stats-grid strong {
+    color: #e2e8f0;
+    font-size: 1.1rem;
+    margin-right: 5px;
+}
+
+/* ========================================
+   Tombol Filter (All, Web, Python, dll)
+   ======================================== */
+.project-filters {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 40px;
+    flex-wrap: wrap; /* Supaya turun ke baris baru jika layar sempit */
+}
+
+.filter-btn {
+    background: transparent;
+    border: none;
+    color: #94a3b8;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.85rem;
+    cursor: pointer;
+    padding: 8px 18px;
+    border-radius: 20px; /* Bentuk pil / lonjong */
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: bold;
+}
+
+.filter-btn:hover {
+    background-color: #1e293b;
+    color: #e2e8f0;
+}
+
+/* Gaya saat tombol filter aktif diklik */
+.filter-btn.active {
+    color: #ffc700;
+    background-color: rgba(255, 199, 0, 0.1);
+    border: 1px solid rgba(255, 199, 0, 0.3);
+}
+
+.filter-btn .count {
+    font-size: 0.7rem;
+    color: #64748b;
+}
+
+.filter-btn.active .count {
+    color: #ffc700;
+}
+
+/* --- Penyesuaian Mode Terang (Light Theme) --- */
+body.light-theme .project-header-layout {
+    border-color: #cbd5e1;
+}
+
+body.light-theme .small-stats-grid {
+    color: #475569;
+}
+
+body.light-theme .small-stats-grid strong {
+    color: #0f172a;
+}
+
+body.light-theme .filter-btn:hover {
+    background-color: #e2e8f0;
+    color: #0f172a;
+}
+
+body.light-theme .filter-btn.active {
+    background-color: #fffbeb; 
+    color: #d97706; /* Kuning gelap agar bisa dibaca di layar putih */
+    border-color: #fcd34d;
+}
+
+body.light-theme .filter-btn.active .count {
+    color: #d97706;
+}
+
+
+
+/* ====================================================
+   16. PERBAIKAN BUG OVERFLOW (LAYAR HP)
+   ==================================================== */
+@media (max-width: 768px) {
+    /* Menimpa ukuran font khusus judul di seksi proyek agar muat di layar HP */
+    .project-header-text .giant-heading {
+        font-size: 2.3rem !important;
+        margin-bottom: 10px !important;
+    }
+}
+
+
+
+
+/* ====================================================
+   17. FITUR TAB MENU (SISTEM TAMPIL/SEMBUNYI)
+   ==================================================== */
+/* Class ini akan ditambahkan oleh JavaScript untuk menyembunyikan seksi */
+.hidden-section {
+    display: none !important;
+}
+
+/* Animasi ala layar terminal saat menu baru dibuka */
+.fade-in-section {
+    animation: fadeInTerminal 0.4s ease forwards;
+}
+
+@keyframes fadeInTerminal {
+    0% { 
+        opacity: 0; 
+        transform: translateY(15px); 
+    }
+    100% { 
+        opacity: 1; 
+        transform: translateY(0); 
     }
 }

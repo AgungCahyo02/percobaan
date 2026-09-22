@@ -28,6 +28,14 @@
             <span class="status-text">[SYS_STATUS: ONLINE]</span>
         </div>
 
+        <!--Menu Navigasi Baru (bagian tengah)-->
+        <nav class="top-nav">
+            <!-- Kita pakai data-target sebagai penanda untuk JavaScript -->
+            <a href="#" data-target="home" class="nav-link active">Home</a>
+            <a href="#" data-target="projects" class="nav-link">Projects</a>
+            <a href="#" data-target="about" class="nav-link">About</a>
+        </nav>
+
         <!--Fitur Light mode dan Dark mode-->
         <div style="display: flex; align-items: center; gap: 15px;">
             <button id="theme-toggle" class="theme-btn">[ MODE TERANG]</button>
@@ -36,36 +44,57 @@
     </header>
 
     <!--2. Hero / Perkenalan-->
-    <section class="hero-section">
+    <section class="hero-section" id="home">
         <div class="hero-content">
-            <!-- Bagian Kiri: Tesk-->
+            <!-- Bagian Kiri: Teks Ala Mas Bagus -->
              <div class="hero-text">
-                <div class="tag-badge">END FIELD // PERSONAL DATA</div>
-                <h1>AGUNG <span class="highlight">Cahyo</span></h1>
+                
+                <div class="greeting-line">
+                    <span class="line"></span> Hi, I'm <span class="highlight">Agung Cahyo</span>
+                </div>
+                
+                <!-- Judul Utama Super Besar -->
+                <h1 class="giant-heading">FRONT-END<br>WEB DEVELOPER</h1>
+                
                 <p class="bio-text">
-                Siswa RPL SMKN 1 Kepanjen. Sedang mempelajari web development, Semantic HTML5, CSS Flexbox, dan JavaScript DOM.
+                Siswa RPL SMKN 1 Kepanjen. Sedang mempelajari web development, Semantic HTML5, CSS Flexbox, dan JavaScript DOM untuk membangun antarmuka interaktif berbasis data.
                 </p>
-            <div class="hazard-bar"></div>
-        </div>
+                
+                <!-- Dua Tombol Aksi (Buttons) -->
+                <div class="hero-buttons">
+                    <a href="#projects" class="btn-primary">View Missions &rarr;</a>
+                    <a href="#contact" class="btn-secondary">Open Comms 💬</a>
+                </div>
 
-        <!--Bagian Kanan: Foto & Badge Lokasi-->
-        <div class="hero-image-container">
-            <!--Kotak latar animasi di belakang foto-->
-            <div class="hero-image-bg"></div>
-            <!--Ganti 'profile.jpg' dengan nama file fotomu-->
-            <img src="rossi_cat.jpeg" alt="Foto Rossina jadi Kucing lucu" class="hero-image">
+                <!-- Bagian Statistik (Stats) di Bawah Teks -->
+                <div class="hero-stats">
+                    <div class="stat-item">
+                        <span class="stat-number">03</span>
+                        <span class="stat-label">MONTHS CODING</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">02+</span>
+                        <span class="stat-label">PROJECTS</span>
+                    </div>
+                </div>
 
-            <!--Kotak melayang ala desain Mas Bagus-->
-            <div class="floating-badge">
-                <span class="badge-title">BASED IN</span><br>
-                <strong>Ngajum, Indonesia</strong>
             </div>
-        </div>
+
+            <!--Bagian Kanan: Foto & Badge Lokasi (Tetap Sama)-->
+            <div class="hero-image-container">
+                <div class="hero-image-bg"></div>
+                <img src="rossi_cat.jpeg" alt="Foto Rossina jadi Kucing lucu" class="hero-image">
+
+                <div class="floating-badge">
+                    <span class="badge-title">BASED IN</span><br>
+                    <strong>Ngajum, Indonesia</strong>
+                </div>
+            </div>
         </div>
     </section>
 
     <!--3. Skills / Peralatan-->
-    <section class="skills-section">
+    <section class="skills-section" id="about">
         <h2 class="section-title">// EQUIPMENT & TECH MODULES</h2>
 
         <div class="skills-grid">
@@ -89,9 +118,45 @@
     </section>
 
     <!--4. Projects / Tugas Sekolah-->
-    <section class="projects-section">
-        <h2 class="section-title">// MISSION  RECORDS (PROJECTS)</h2>
+    <section class="projects-section" id="projects">
+        
+        <!-- HEADER PROJECT BARU (Teks Besar & Angka) -->
+        <div class="project-header-layout">
+            <!-- Kiri: Teks Utama -->
+            <div class="project-header-text">
+                <div class="greeting-line">
+                    <span class="line"></span> Mission <span class="highlight">Archive</span>
+                </div>
+                <h2 class="giant-heading">ALL WORK<br>& PROJECTS.</h2>
+                <p class="bio-text">
+                Arsip lengkap tugas praktikum dan proyek rekayasa perangkat lunak — antarmuka web, Python, manipulasi DOM, dan desain antarmuka.
+                </p>
+            </div>
 
+            <!-- Kanan: Statistik Proyek -->
+            <div class="project-header-stats">
+                <div class="big-stat-container">
+                    <span class="stat-number">02</span>
+                    <span class="stat-label">TOTAL PROJECTS</span>
+                </div>
+                <div class="small-stats-grid">
+                    <div><strong>01</strong> WEB</div>
+                    <div><strong>00</strong> MOBILE</div>
+                    <div><strong>01</strong> PYTHON</div>
+                    <div><strong>00</strong> UI/UX</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- TOMBOL FILTER -->
+        <div class="project-filters">
+            <button class="filter-btn active">All <span class="count">2</span></button>
+            <button class="filter-btn">Web <span class="count">1</span></button>
+            <button class="filter-btn">Python <span class="count">1</span></button>
+            <button class="filter-btn">Mobile <span class="count">0</span></button>
+        </div>
+
+        <!-- KARTU PROYEK (Isinya tetap sama) -->
         <div class="projects-grid">
             <!--Card Proyek 1-->
             <article class="project-card">
@@ -115,6 +180,7 @@
                 <div class="tech-stack">STACK: Python, Canva</div>
             </article>
         </div>
+        
     </section>
 
     <!--5. Footer / Kontak-->

@@ -81,3 +81,47 @@ themeBtn.addEventListener('click', () => {
         themeBtn.textContent = '[ MODE TERANG ]';
     }
 });
+
+
+// ====================================================
+// 5. FITUR NAVIGASI MENU (TAB SWITCHING)
+// ====================================================
+// Mengambil semua tombol menu dan semua seksi (home, about, projects)
+const navLinks = document.querySelectorAll('.nav-link');
+const sections = document.querySelectorAll('section');
+
+// Sembunyikan semua section kecuali "Home" saat pertama kali web dibuka
+sections.forEach(section => {
+    if(section.id !== 'home') {
+        section.classList.add('hidden-section');
+    }
+});
+
+// Memberikan perintah klik pada setiap tombol menu
+navLinks.forEach(link => {
+    link.addEventListener('click', function(e) {
+        e.preventDefault(); // Mencegah layar melompat/scroll ke atas
+
+        // 1. Hapus efek warna kuning (class 'active') dari semua tombol menu
+        navLinks.forEach(nav => nav.classList.remove('active'));
+        
+        // 2. Tambahkan warna kuning HANYA ke tombol yang baru saja diklik
+        this.classList.add('active');
+
+        // 3. Ambil nama target dari tombol (misal: "projects" atau "about")
+        const targetId = this.getAttribute('data-target');
+
+        // 4. Cari seksi yang cocok, lalu tampilkan. Sembunyikan yang lainnya.
+        sections.forEach(section => {
+            if (section.id === targetId) {
+                // Tampilkan seksi ini dan beri animasi
+                section.classList.remove('hidden-section');
+                section.classList.add('fade-in-section');
+            } else {
+                // Sembunyikan seksi ini
+                section.classList.add('hidden-section');
+                section.classList.remove('fade-in-section');
+            }
+        });
+    });
+});
